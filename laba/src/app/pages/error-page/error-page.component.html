@@ -1,0 +1,27 @@
+<div class="content">
+
+    <img src="/icons/error.jpg" alt="" class="error">
+
+    <p class="error-text">
+        Страница доступна  только <br>для  авторизованных <br>пользователей
+    </p>
+
+    <p>Чтобы подключить услугу авторизуйтесь в системе.</p>
+
+    <div class="buttons">
+        <app-but-index 
+            [text]="textBut[0]"
+            [flagFormBut]="numBut[0]"
+            (click)="openModal($event, 'modalAutorization')"
+        >
+        </app-but-index>
+        
+        <app-but-index 
+            [text]="textBut[1]"
+            [flagFormBut]="numBut[1]"
+            (click)="openModal($event, 'modalRegistration')"
+        >
+        </app-but-index>
+    </div>
+
+</div>

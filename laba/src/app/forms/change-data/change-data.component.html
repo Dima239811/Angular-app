@@ -1,0 +1,54 @@
+<div class="modal-overlay" *ngIf="isOpen" (click)="close()">
+    <div class="modal-content" (click)="$event.stopPropagation()">  
+
+        <div class="header-form">    
+            <h1>Изменить данные</h1>
+            <button class="close-button" (click)="close()">&#10006;</button>
+        </div>
+        
+        <div class="Input-field">
+
+            <form 
+                [formGroup]="changeDataForm" 
+                [ngClass]="{'has-error': changeDataForm.invalid && (changeDataForm.touched || changeDataForm.dirty)}">
+
+                <input type="text" formControlName="name" placeholder="Имя">
+                    <span class="form-help-text" *ngIf="changeDataForm.get('name')?.invalid && (changeDataForm.get('name')?.touched || changeDataForm.get('name')?.dirty)">
+                        <span *ngIf="changeDataForm.get('name')?.errors?.['required']">Имя не может быть пустым.</span>
+                    </span>
+
+                <input type="email" formControlName="email" placeholder="Почта">
+                    <span class="form-help-text" *ngIf="changeDataForm.get('email')?.invalid && (changeDataForm.get('email')?.touched || changeDataForm.get('email')?.dirty)">
+                        <span *ngIf="changeDataForm.get('email')?.errors?.['forbiddenEmail']">Email уже занят.</span>
+                        <span *ngIf="changeDataForm.get('email')?.errors?.['required']">Email не может быть пустым.</span>
+                        <span *ngIf="changeDataForm.get('email')?.errors?.['email']">Введите корректный email.</span>
+                    </span>
+
+                <input type="password" formControlName="password" placeholder="Введите новый пароль">
+                    <span class="form-help-text" *ngIf="changeDataForm.get('password')?.invalid && (changeDataForm.get('password')?.touched || changeDataForm.get('password')?.dirty)">
+                        <span *ngIf="changeDataForm.get('password')?.errors?.['required']">Пароль не может быть пустым.</span>
+                        <span *ngIf="changeDataForm.get('password')?.errors?.['minlength']">
+                            Пароль должен быть больше {{ changeDataForm.get('password')?.errors?.['minlength']?.['requiredLength'] }} символов.
+                        </span>
+                    </span>
+
+                <input type="password" formControlName="confirmpassword" placeholder="Подтвердите новый пароль">
+                    <span class="form-help-text" *ngIf="changeDataForm.get('confirmpassword')?.invalid && (changeDataForm.get('confirmpassword')?.touched || changeDataForm.get('confirmpassword')?.dirty)">
+                        <span *ngIf="changeDataForm.get('confirmpassword')?.errors?.['required']">Пароль не может быть пустым.</span>
+                        <span *ngIf="changeDataForm.get('confirmpassword')?.errors?.['minlength']">
+                            Пароль должен быть больше {{ changeDataForm.get('confirmpassword')?.errors?.['minlength']?.['requiredLength'] }} символов.
+                        </span>
+                    </span>
+
+                    <span *ngIf="changeDataForm.errors?.['mismatch'] && changeDataForm.get('password')?.touched && changeDataForm.get('confirmpassword')?.touched">
+                        Пароли должны совпадать.
+                    </span>
+
+                <app-but-index [text]="text[0]" [flagFormBut]="buttons" (click)="onButtonClick()"></app-but-index>
+            </form>
+           
+        </div>
+   
+    </div>
+  </div>
+

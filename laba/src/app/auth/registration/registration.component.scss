@@ -1,0 +1,88 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background: white;
+    border-radius: 5px;   
+    width: auto;
+    height: auto; //536px
+    padding: 40px;
+  }
+  
+  .header-form {
+    display: grid;
+    grid-template-columns: 184px auto; 
+    align-items: start; 
+
+    
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #070707;
+    margin: 0;
+    margin-bottom: 32px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column; 
+    gap: 16px; 
+  }
+
+  .Input-field {
+    display: flex;
+    flex-direction: column; 
+    gap: 16px; 
+  }
+
+  .devider {
+    background-color: var(--Devider);
+    width: 300px;
+    height: 1px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  p {
+    color: #161616;
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .textBut {
+    height: 114px;
+  }
+
+  .close-button {
+    font-size: 24px;
+    color: #BFBFBF; 
+    background: none; 
+    border: none; 
+    cursor: pointer;
+    margin-left: 90px;
+    font-weight: 400;
+    &:hover {
+      color: var(--greenColor);
+    }
+  }
+
+  span {
+    color: red;
+    font-size: 14px;
+    font-weight: 300;
+    margin-left: 10px;
+  }
+
+  

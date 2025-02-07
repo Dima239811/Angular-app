@@ -1,0 +1,100 @@
+table {
+    border-collapse: collapse;
+}
+
+.headTable {
+    background-color: #F8F8F8;
+    font-size: 24px;
+    color: #000;
+    font-weight: 600;
+    height: 85px;
+}
+
+.col1 {
+    width: 140px;
+}
+
+.col2 {
+    width: 140px;
+}
+
+.col3 {
+    width: 130px;
+}
+
+.col4 {
+    width: 178px;
+}
+
+.col5 {
+    width: 236px;
+}
+
+.col6 {
+    width: 290px;
+}
+
+.status_col {
+    width: 200px;
+}
+
+.text-table {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    height: 80px;
+    color: #000;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+}
+
+tr.text-table:hover {
+    background-color: #F0FDFC; 
+}
+
+.action_col {
+    width: 240px;
+}
+
+a {
+    cursor: pointer;
+    &:hover {
+        color: #00A19C;
+    }
+}
+
+label {
+    font-size: 20px;
+}
+
+select {
+    margin-bottom: 30px;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.text-icon {
+    font-size: 14;
+    font-weight: 400;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 30px;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px; 
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+
+
+

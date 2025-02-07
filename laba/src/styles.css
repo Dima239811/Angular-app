@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --greenColor: #00A19C;
+    --greenColorHover: #008C88;
+    --Black: #070707;
+    --Devider: #E3E3E3;
+    --FooterColor: #252525;
+    --SecondButInForm: #F1F1F1;
+    --White: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;   
+}
+
+
+
+button {
+    cursor: pointer;
+}
+

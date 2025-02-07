@@ -1,0 +1,53 @@
+<div class="container">
+
+    <!-- условный рендеринг в зависимости от роли-->
+    <h1 *ngIf="!isadmin">Личный кабинет пользователя</h1>
+
+    <h1 *ngIf="isadmin">Личный кабинет администратора</h1>
+
+    <h2>Ваши личные данные:</h2>
+
+    <div class="field-value">
+
+        <div class="namefield">
+            <p class="field">Имя</p>
+            <p class="field">Почта</p>
+            <p class="field">Пароль</p>
+        </div>
+
+        <div class="valueBlok">
+            <p class="value"> {{user.name}} </p>
+            <p class="value"> {{user.email}} </p>
+            <p class="value"> ****** </p>
+        </div>
+        
+    </div>
+
+    <app-but-index [text]="textBut[0]"
+                   [flagFormBut]="numBut[0]"
+                   (buttonClick)="openModal('modalChange')">
+     </app-but-index>
+
+    <app-change-data #modalChange (dataChanged)="handleDataChanged($event)"></app-change-data>
+    <!-- условный рендеринг -->
+    <h2 *ngIf="!isadmin">Ваши запланированные услуги:</h2>
+
+    <h2 *ngIf="isadmin">Список услуг клиентов</h2>
+
+    <app-table [admin]="isadmin"></app-table>
+    
+    <div class="grid-but">
+
+        <app-but-index 
+            [text]="textBut[1]"
+            [flagFormBut]="numBut[0]"
+            (buttonClick)="openModal('modalRecord')">
+        </app-but-index>
+
+        <app-record #modalRecord></app-record>
+
+    </div>
+  
+</div>
+
+

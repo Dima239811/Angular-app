@@ -1,0 +1,40 @@
+<!-- кнопка с форм зеленая -->
+ <div [ngSwitch]="flagFormBut">
+    
+    <!-- зеленая кнопка с формы -->
+    <button class="formGreenBut" *ngSwitchCase="1" (click)="onClick()">
+        {{text}}
+    </button>
+
+    <!-- белая кнопка с формы -->
+    <button class="formWhiteBut" *ngSwitchCase="2" (click)="onClick()">
+        {{text}}
+    </button>
+
+    <!-- кнопка с главной страницы -->
+    <button class="indexPage" (click)="onClick()" *ngSwitchCase="3">  
+        {{text}}
+    </button>
+
+    <!-- зеленая кнопка со страницы профиля-->
+    <button class="ProfilePageGreenBut" (click)="onClick()" *ngSwitchCase="4">  
+        {{text}}
+    </button>
+
+     <!-- cветлая кнопка со страниы профиля -->
+    <button class="ProfilePageLightBut" (click)="onClick()" *ngSwitchCase="5">  
+        {{text}}
+    </button>
+
+     <!-- зеленая кнопка со страницы ошибки-->
+    <button class="ErrorPageGreenBut" (click)="onClick()" *ngSwitchCase="6">  
+        {{text}}
+    </button>
+
+     <!-- cветлая кнопка со страниы профиля -->
+    <button class="ErrorPageLightBut" (click)="onClick()" *ngSwitchCase="7">  
+        {{text}}
+    </button>
+
+</div>
+

@@ -1,0 +1,104 @@
+<div class="container">
+
+     <div class="banner">
+        <img src="/icons/img1.jpg" alt="">
+
+        <div class="content-banner">
+            <h1>Салон сервисного <br>обслуживания <br>
+                Mercedes</h1>
+            <p class="banner-text">
+                Ваш автомобиль Mercedes-Benz — это не <br>
+                просто машина, это символ качества, <br>
+                стиля и надежности. Именно поэтому <br>
+                важно обеспечить ему должное <br>
+                техническое обслуживание и заботу. 
+            </p>
+
+            <app-but-index 
+                [text]="textBut"
+                [flagFormBut]="num"
+                (buttonClick)="openModal('modalRecord')">
+            </app-but-index>
+
+            <app-record #modalRecord></app-record>
+
+        </div>
+        
+     </div>
+
+<div class="text">
+    <h2 id="Customer-services">Какие услуги доступны для клиентов?</h2>
+    <p>     Ремонт Mercedes-Benz осуществляется в специализированных точках ремонта Мерседес, которые находятся в каждом крупном городе <br>
+         России (например,«Мой Сервис МБ» — ведущий сервис Mercedes Москвы и МО). Благодаря специализации на автомобилях Мерседес Бенц, <br>
+          сервис включает в себя широкий выбор услуг для диагностики и ремонта Мерседес любой сложности. <br>
+        Какие услуги по ремонту Мерседеса вы можете получить, обратившись в сервис МБ? Приводим список вариантов для ремонта Мерседес, <br>
+         доступных в «Мой Сервис МБ» Мерседес — одном из ведущих сервисов Мерседес.</p>
+
+         <app-but-index 
+            [text]="textBut"
+            [flagFormBut]="num" 
+            class="but-1"
+            (buttonClick)="openModal('modalRecord')">
+        </app-but-index>
+
+</div>
+
+<h2 id="CarMaintenance">Сервисное обслуживание автомобилей Mercedes</h2>
+<div class="blok-1">
+
+    <div class="blok-2">
+        <p class="text1">Автомобили Mercedes славятся своей надёжностью и качеством,
+            но  <br>даже они требуют регулярного обслуживания. Пренебрегая <br> ремонтом, вы рискуете не только ухудшить
+             производительность <br>вашего автомобиля, но и сократить его жизненный цикл. Регулярное <br> техническо
+             е обслуживание поможет избежать неожиданных поломок <br> и сохранить ваш Mercedes в идеальном состоянии.</p>
+         
+           <app-but-index 
+                [text]="textBut"
+                [flagFormBut]="num"
+                (buttonClick)="openModal('modalRecord')">
+            </app-but-index>
+           
+    </div>
+    <img src="/icons/image.jpg" alt="">
+</div>
+
+<h2 id="OurSalons">Наши салоны</h2>
+
+<div class="textSalon">
+
+        <div class="col">
+            <h3>Филиал г. Москва</h3>
+            <p class="spisok">Волковское шоссе, 36 <br>
+            + 7 (905)  464-38-47  <br>
+            info&#64;myservice.ru <br>
+            Ежедневно: 9:00 - 21:00</p>
+        </div>
+        
+        <div class="col">
+            <h3>Филиал г. Н. Новгород</h3>
+            <p class="spisok"> Казанское шоссе, 36<br> 
+            + 7 (905)  464-78-49 <br>
+            infonn&#64;myservice.ru <br>
+            Ежедневно: 9:00 - 21:00</p>
+        </div>
+
+        <div class="col">
+            <h3>Филиал г. Казань</h3>
+            <p class="spisok">Улица Ленина, 45<br> 
+            + 7 (905)  785-37-45<br>
+            infok&#64;myservice.ru <br>
+            Ежедневно: 9:00 - 21:00</p>
+        </div>
+
+        <div class="col">
+            <h3>Филиал г. Краснодар</h3>
+            <p class="spisok">Советская улица, 38<br> 
+            + 7 (905)  464-38-54 <br>
+            infokr&#64;myservice.ru <br>
+            Ежедневно: 9:00 - 21:00</p>
+        </div>
+        
+</div>
+
+ 
+</div>

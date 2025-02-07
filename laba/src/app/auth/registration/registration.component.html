@@ -1,0 +1,118 @@
+<div 
+class="modal-overlay" 
+*ngIf="isOpen" 
+(click)="close()"
+>
+    <div class="modal-content" (click)="$event.stopPropagation()">  
+        <div class="header-form"> 
+            <h1>Регистрация</h1>
+            <button class="close-button" (click)="close()">&#10006;</button>
+        </div>
+
+        <div class="Input-field">
+
+            <form [formGroup]="form"
+                [ngClass]="{'has-error': form.get('useremail')?.invalid &&
+                form.get('useremail')?.touched}"
+                [ngClass]="{'has-error': form.get('userpassword')?.invalid &&
+                form.get('userpassword')?.touched}"
+                [ngClass]="{'has-error': form.get('username')?.invalid &&
+                form.get('username')?.touched}"
+                >
+                <app-field 
+                    textHolder={{Textholder[0]}} 
+                    id="{{Id[0]}}" 
+                    type="{{type[0]}}" 
+                    [controlName]="'username'"
+                >
+                </app-field>
+
+                <span 
+                    class="form-help-text"
+                    *ngIf="form.get('username')?.invalid &&
+                    form.get('username')?.touched"
+                >  
+                    <span *ngIf="form.get('username')?.errors?.['required']">Имя не может быть пустым.</span>
+                </span>
+
+                <app-field 
+                    textHolder={{Textholder[1]}} 
+                    id="{{Id[1]}}" 
+                    type="{{type[1]}}"
+                    [controlName]="'useremail'"
+                >
+                </app-field>
+
+                <span 
+                    class="form-help-text"
+                    *ngIf="form.get('useremail')?.invalid &&
+                    form.get('useremail')?.touched"
+                >  
+                    <span *ngIf="form.get('useremail')?.errors?.['required']">Email не может быть пустым.</span>
+                    <span *ngIf="form.get('useremail')?.errors?.['email']">Введите корректный email.</span>
+                    <span *ngIf="form.get('useremail')?.errors?.['forbiddenEmail']">Email уже занят.</span>
+                </span>     
+
+                <app-field 
+                    textHolder={{Textholder[2]}} 
+                    id="{{Id[2]}}" 
+                    type="{{type[2]}}"
+                    [controlName]="'userpassword'"
+                ></app-field>
+
+                <span 
+                class="form-help-text"
+                *ngIf="form.get('userpassword')?.invalid &&
+                 form.get('userpassword')?.touched"
+                >  
+                    <span *ngIf="form.get('userpassword')?.errors?.['required']">Пароль не может быть пустым.</span>
+                    <span *ngIf="form.get('userpassword')?.errors?.['minlength']">
+                        Пароль должен быть больше {{ form.get('userpassword')?.errors?.['minlength']?.['requiredLength'] }} символов. Сейчас {{ form.get('userpassword')?.errors?.['minlength']?.['actualLength'] }}.
+                    </span>
+                </span>
+
+                <app-field 
+                    textHolder={{Textholder[3]}} 
+                    id="{{Id[3]}}" 
+                    type="{{type[2]}}"
+                    [controlName]="'confirmPassword'"
+                >
+                </app-field>
+
+                <span
+                *ngIf="form.get('confirmPassword')?.invalid &&
+                 form.get('confirmPassword')?.touched"
+                >  
+                    <span *ngIf="form.get('confirmPassword')?.errors?.['required']">Пароль не может быть пустым.</span>
+                    <span *ngIf="form.get('confirmPassword')?.errors?.['minlength']">
+                        Пароль должен быть больше {{ form.get('confirmPassword')?.errors?.['minlength']?.['requiredLength'] }} символов. Сейчас {{ form.get('confirmPassword')?.errors?.['minlength']?.['actualLength'] }}.
+                    </span>
+                </span>
+
+                <span>
+                    <span 
+                    class="form-help-text"
+                    *ngIf="form.errors?.['mismatch'] && form.get('userpassword')?.touched && form.get('confirmPassword')?.touched">
+                        Пароли должны совпадать.
+                    </span>
+                </span>
+
+                <app-but-index [text]="text[0]" 
+                [flagFormBut]="buttons[0]" 
+                (click)="onButtonClick()"               
+                >
+                </app-but-index>
+            </form>
+            
+        </div>
+
+        <div class="devider">
+        </div>
+        
+        <div class="textBut">
+            <p>Если у вас уже есть акканут, то нажмите <br>на кнопку “Войти”</p>
+            <app-but-index [text]="text[1]" [flagFormBut]="buttons[1]" (click)="switchToAuthorization()"></app-but-index>
+        </div>       
+        
+    </div>
+  </div>

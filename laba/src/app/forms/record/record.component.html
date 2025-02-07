@@ -1,0 +1,130 @@
+<div class="modal-overlay" *ngIf="isOpen" (click)="close()">
+    <div class="modal-content" (click)="$event.stopPropagation()"> 
+
+        <div class="header-form">
+            <h1>Запись</h1>
+            <button class="close-button" (click)="close()">&#10006;</button>
+        </div>
+
+        <div class="Input-field">
+            
+            <form 
+                [formGroup]="formRecord"
+                [ngClass]="{'has-error': formRecord.get('useremail')?.invalid &&
+                formRecord.get('useremail')?.touched}"
+                [ngClass]="{'has-error': formRecord.get('modelCar')?.invalid &&
+                formRecord.get('modelCar')?.touched}"
+                [ngClass]="{'has-error': formRecord.get('username')?.invalid &&
+                formRecord.get('username')?.touched}"
+                [ngClass]="{'has-error': formRecord.get('date')?.invalid &&
+                formRecord.get('date')?.touched}"
+                [ngClass]="{'has-error': formRecord.get('time')?.invalid &&
+                formRecord.get('time')?.touched}"
+            >
+             
+                <app-field 
+                    textHolder={{textholder[0]}} 
+                    id="{{Id[0]}}" type="{{type[0]}}" 
+                    [controlName]="'username'" 
+                    *ngIf="!(isAuthenticated && !isAdmin)"
+                >
+
+                </app-field>
+
+                <span 
+                    class="form-help-text"
+                    *ngIf="formRecord.get('username')?.invalid &&
+                    formRecord.get('username')?.touched"
+                >  
+                    <span *ngIf="formRecord.get('username')?.errors?.['required']">Имя не может быть пустым.</span>
+                </span>
+
+                <app-field 
+                    textHolder={{textholder[4]}} 
+                    id="{{Id[3]}}" 
+                    type="{{type[1]}}" 
+                    [controlName]="'useremail'" 
+                    *ngIf="!(isAuthenticated && !isAdmin)"
+                >
+                </app-field>     
+                
+                <span 
+                    class="form-help-text"
+                    *ngIf="formRecord.get('useremail')?.invalid &&
+                    formRecord.get('useremail')?.touched"
+                >  
+                    <span *ngIf="formRecord.get('useremail')?.errors?.['required']">Email не может быть пустым.</span>
+                    <span *ngIf="formRecord.get('useremail')?.errors?.['email']">Введите корректный email.</span>
+                </span>
+
+                <app-field 
+                    textHolder={{textholder[1]}} 
+                    id="{{Id[1]}}" 
+                    type="{{type[1]}}" 
+                    [controlName]="'modelCar'">
+
+                </app-field>
+
+                <span 
+                    class="form-help-text"
+                    *ngIf="formRecord.get('modelCar')?.invalid &&
+                    formRecord.get('modelCar')?.touched"
+                >  
+                    <span *ngIf="formRecord.get('username')?.errors?.['required']">Модель не может быть пустой.</span>
+
+                </span>
+
+                <app-field 
+                    textHolder={{textholder[2]}} 
+                    id="{{Id[2]}}" 
+                    type="{{type[2]}}" 
+                    [controlName]="'date'">
+                </app-field>
+
+                <span 
+                    class="form-help-text"
+                    *ngIf="formRecord.get('date')?.invalid &&
+                    formRecord.get('date')?.touched"
+                >  
+                    <span *ngIf="formRecord.get('date')?.errors?.['required']">Дата не может быть пустой.</span>
+                    <span *ngIf="!formRecord.get('date')?.errors?.['required'] && formRecord.get('date')?.hasError('dateInPast')">
+                        Дата не может быть раньше сегодняшнего дня.</span>
+
+                </span>
+
+                <app-field 
+                    textHolder={{textholder[3]}} 
+                    id="{{Id[2]}}" 
+                    type="{{type[3]}}" 
+                    [controlName]="'time'">
+                </app-field>
+
+                <span 
+                    class="form-help-text"
+                    *ngIf="formRecord.get('time')?.invalid && formRecord.get('time')?.touched"
+                >  
+                    <span *ngIf="formRecord.get('time')?.errors?.['required']">Время не может быть пустым.</span>
+                    <span *ngIf="formRecord.get('time')?.errors?.['timeOutOfRange'] && !formRecord.get('time')?.errors?.['required']">
+                        Время записи должно быть в диапазоне от 9:00 до 18:00.</span>
+                    <span *ngIf="formRecord.get('time')?.errors?.['notWholeHour'] && !formRecord.get('time')?.errors?.['timeOutOfRange']">
+                            Время должно быть установлено на целые часы (например, 10:00, 11:00).</span>
+                    <span 
+                    *ngIf="formRecord.errors?.['timeNotAvailable'] && formRecord.get('date')?.touched && formRecord.get('time')?.touched">
+                    Выбранные дата и время недоступны. Пожалуйста, выберите другие время и дату.
+                    </span>
+
+            
+
+                </span>
+            
+                <div *ngIf="message" class="error-text">
+                    {{message.text}}
+                </div>
+
+                <app-but-index [text]="text[0]" [flagFormBut]="buttons" (click)="onButtonClick()"></app-but-index>
+            </form>  
+
+        </div>
+    </div>
+  </div>
+

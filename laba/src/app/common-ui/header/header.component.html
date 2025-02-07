@@ -1,0 +1,53 @@
+<header>
+    <div class="container_header">
+        
+        <div class="header-nav">
+
+            <div class="icon_name">
+                <a routerLink="/"  class="logo">
+                    <img src="/icons/iconMers 1.svg" alt="">
+                </a>
+
+                <div class="textAboutServis">
+                    <p class="nameSite">СЕРВИС МЕРСЕДЕС-ЦЕНТР</p>
+                    <p class="text">Официальный дилер</p>
+                </div>
+    
+            </div>
+        </div>
+            
+            <nav class="nav-list">
+                <ul class="nav-list">            
+                    <li class="nav-item"><a routerLink="/" class="nav-link">ГЛАВНАЯ</a></li>
+                    <li class="nav-item"><a (click)="navigateToSection('Customer-services')" class="nav-link">УСЛУГИ</a></li>
+                    <li class="nav-item"><a (click)="navigateToSection('CarMaintenance')" class="nav-link">О НАС</a></li>
+                    <li class="nav-item"><a (click)="navigateToSection('OurSalons')" class="nav-link">КОНТАКТЫ</a></li>
+                </ul>
+            </nav>
+
+        <nav class="logo1">
+
+            <div class="icon-Enter">
+                <a class="logoExit"  (click)="tryOpenModal($event)">
+                    <img src="/icons/logo1.svg" class="logoIm">
+                    <p *ngIf="!isAuth">Войти</p>
+                    <p *ngIf="isAuth">Выйти</p>
+                </a>
+
+                <app-auth></app-auth>
+                <app-exit></app-exit>
+            </div>
+
+            <div class="icon-Exit" *ngIf="isAuth">
+                <a routerLink="/profile"  class="logoExit">
+                    <img src="/icons/logo2.svg" class="logoIm1">
+                    <p>Профиль</p>
+                </a>  
+            </div>
+            
+        </nav>
+        
+    </div>
+    
+</header>
+

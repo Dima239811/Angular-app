@@ -1,0 +1,31 @@
+<div class="modal-overlay" *ngIf="isOpen" (click)="close()">
+    <div class="modal-content" (click)="$event.stopPropagation()">  
+
+        <div class="header-form">
+            <h1>{{ actionType === 'cancel' ? 'Отмена услуги' : actionType === 'execute' ? 'Выполнение услуги' : 'Возобновление услуги' }}</h1>
+            <button class="close-button" (click)="close()">&#10006;</button>
+        </div>
+
+        <p class="cancel-text" *ngIf="actionType === 'cancel'">
+            Вы точно хотите отменить выбранную 
+            услугу? Отменить данное действие будет 
+            невозможно.
+        </p>
+
+        <p class="cancel-text" *ngIf="actionType === 'execute'">
+            Вы точно хотите выполнить выбранную 
+            услугу? Это действие будет необратимым.
+        </p>
+
+        <p class="cancel-text" *ngIf="actionType === 'resume'">
+            Вы точно хотите возобновить выбранную
+            услугу? Убедитесь, что все данные верны.
+        </p>
+
+        <app-but-index [text]="text[0]" [flagFormBut]="buttons" (click)="onButtonClick()" *ngIf="actionType === 'cancel'"></app-but-index>
+        <app-but-index [text]="text[1]" [flagFormBut]="buttons" (click)="onButtonClick()" *ngIf="actionType === 'execute'"></app-but-index>
+        <app-but-index [text]="text[2]" [flagFormBut]="buttons" (click)="onButtonClick()" *ngIf="actionType === 'resume'"></app-but-index>
+
+    </div>
+  </div>
+

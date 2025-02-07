@@ -1,0 +1,111 @@
+.container {
+    max-width: 1716px;
+    height: auto;
+}
+
+.banner {
+    margin: 44px 102px 120px;
+    display: grid;
+    grid-template-columns: 1091px 624px;
+}
+
+.content-banner {
+    background-color: #353535;
+    padding: 56px 36px 82px 70px;
+    height: 496px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0px;
+}
+
+.banner-text {
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--Devider);
+    line-height: 36px;
+    margin: 30px 0px;
+}
+
+.text {
+    width: 1720px;
+    height: 498px;
+    margin: 0 102px 120px;  
+}
+
+p {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 48px;
+}
+
+h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 65px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 0px;
+}
+
+a {
+    color: #FFFEFE;
+    text-decoration: none;
+}
+
+.but-1 {
+    margin: 60px 762px 120px 629px;
+}
+
+.blok-1 {
+    width: 1708px;
+    height: 518px;
+    margin-left: 110px;
+    display: grid;
+    grid-template-columns: 846px 836px;
+    grid-gap: 26px;
+    margin-bottom: 120px;
+}
+
+.bloc-2 {
+    display: grid;
+    grid-template-columns: 846px;
+    grid-gap: 26px;
+}
+
+.text1 {
+    font-size: 24px;
+    font-weight: 400;
+    height: 288px;
+    margin-bottom: 48px;
+}
+
+.textSalon {
+    width: 1586px;
+    height: 154px;
+    margin-left: 102px;
+    display: flex;
+    column-gap: 200px;
+    margin-bottom: 120px;
+}
+
+h3 {
+    font-size: 24px;
+    color: #000;
+    font-weight: 700;
+}
+
+.spisok {
+    font-size: 18px;
+    color: #070707;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.temp {
+    color: black;
+}
+

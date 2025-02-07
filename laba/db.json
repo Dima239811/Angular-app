@@ -1,0 +1,109 @@
+{
+  "users": [
+    {
+      "name": "дима админ",
+      "email": "admin@mail.ru",
+      "id": "159a",
+      "role": "admin",
+      "password": "$2a$10$AxT/7lQkBrplPQYKjC6xc.aFAezIoMDG4gj/ru/H486Zt9p5vG50W"
+    },
+    {
+      "name": "Дима пользовател",
+      "email": "user@mail.ru",
+      "id": "b65f",
+      "password": "$2a$10$POhTbGyY0e6skTuMiknXBuS7lLMewyhupRf1doF46cHGgIKEfzKb2"
+    }
+  ],
+  "orders": [
+    {
+      "id": "d7ec",
+      "name": "Дима пользователь",
+      "email": "user@mail.ru",
+      "model": "x4",
+      "date": "2024-12-07",
+      "time": "13:00",
+      "status": "подтвержден"
+    },
+    {
+      "id": "53c2",
+      "name": "Дима пользователь",
+      "email": "user@mail.ru",
+      "model": "e53",
+      "date": "2024-12-21",
+      "time": "15:00",
+      "status": "подтвержден"
+    },
+    {
+      "id": "b313",
+      "name": "Дима пользователь",
+      "email": "user@mail.ru",
+      "model": "c 300",
+      "date": "2024-12-20",
+      "time": "10:00",
+      "status": "подтвержден"
+    },
+    {
+      "id": "2005",
+      "name": "Александр",
+      "email": "alex@mail.ru",
+      "model": "ml",
+      "date": "2024-12-19",
+      "time": "15:00",
+      "status": "выполнен"
+    },
+    {
+      "id": "3c96",
+      "name": "Александр",
+      "email": "alex@mail.ru",
+      "model": "x3",
+      "date": "2024-12-11",
+      "time": "10:00",
+      "status": "отменен"
+    },
+    {
+      "id": "3690",
+      "name": "Дима пользователь",
+      "email": "user@mail.ru",
+      "model": "ml53",
+      "date": "2024-12-12",
+      "time": "10:00",
+      "status": "подтвержден"
+    },
+    {
+      "id": "93e1",
+      "name": "Евгений",
+      "email": "evgenii@mail.ru",
+      "model": "CLE",
+      "date": "2024-12-12",
+      "time": "10:00",
+      "status": "подтвержден"
+    },
+    {
+      "id": "7338",
+      "name": "Дима пользователь",
+      "email": "user@mail.ru",
+      "model": "GLE",
+      "date": "2024-12-12",
+      "time": "12:00",
+      "status": "подтвержден"
+    },
+    {
+      "id": "1fe7",
+      "name": "Дима пользовател",
+      "email": "user@mail.ru",
+      "model": "x6",
+      "date": "2024-12-26",
+      "time": "10:00",
+      "status": "отменен"
+    },
+    {
+      "id": "e48a",
+      "name": "Дима пользовател",
+      "email": "user@mail.ru",
+      "model": "fff",
+      "date": "2024-12-27",
+      "time": "11:00",
+      "status": "выполнен"
+    }
+  ]
+}

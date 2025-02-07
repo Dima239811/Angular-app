@@ -1,0 +1,123 @@
+<label for="sortSelect">Сортировка:</label>
+<select id="sortSelect" [(ngModel)]="sortBy" (change)="sortData()">
+    <option value="status">по статусу заявки</option>
+    <option value="date">по дате</option>
+    <option *ngIf="admin" value="clientName">по имени клиента</option>
+</select>
+
+<table *ngIf="!admin">
+    <thead> 
+        <tr class="headTable">
+            <th class="col1">№ заказа</th>
+            <th class="col2">модель</th>
+            <th class="col3">время</th>
+            <th class="col4">дата</th>
+            <th class="status_col">статус</th>
+            <th class="action-col">действие</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <!-- циклический рендеринг -->
+        <tr class="text-table" *ngFor="let order of filteredOrders; let i = index">
+            <td class="col1">{{ order.id }}</td>
+            <td class="col2">{{ order.model }}</td>
+            <td class="col3">{{ order.time }}</td>
+            <td class="col4">{{ order.date }}</td>
+            <td class="status_col">{{ order.status }}</td>
+
+            <td class="action_col">
+
+                <div class="icons">
+
+                    <!-- <a class="close-button" (click)="openModal(order, 'выполнен')" *ngIf="order.status != 'отменен' && !(order.status == 'выполнен')">
+                        <img src="/icons/iconExecute.svg" alt="" class="icon">
+                        <p class="text-icon">
+                            выполнить
+                        </p>
+                    </a> -->
+
+                    <a class="close-button" (click)="openModal(order, 'отменен')" *ngIf="order.status == 'подтвержден'">
+                        <img src="/icons/iconsCancelorder.svg" alt="" class="icon">
+                        <p class="text-icon">
+                            отменить
+                        </p>
+                    </a>
+
+                    <a class="close-button" (click)="openModal(order, 'подтвержден')" *ngIf="!(order.status == 'подтвержден') && !(order.status == 'выполнен')">
+                        <img src="/icons/iconreturn.svg" alt="" class="icon">
+                        <p class="text-icon">
+                            возобновить
+                        </p>
+                    </a>
+
+             </div>
+
+                
+            </td>              
+        </tr>
+
+    </tbody>
+
+</table>
+
+<app-reset #modalReset (buttonClickCancelOrder)="onButtonClickCancelOrder($event)"></app-reset>
+
+
+
+<!-- таблица для админа -->
+<table *ngIf="admin">
+    <thead> 
+        <tr class="headTable">
+            <th class="col1">№ заказа</th>
+            <th class="col2">модель</th>
+            <th class="col3">время</th>
+            <th class="col4">дата</th>
+            <th class="status_col">статус</th>
+            <th class="col5">имя клиента</th>
+            <th class="col6">почта клиента</th>
+            <th class="action-col">действие</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="text-table" *ngFor="let order of orders; let i = index">
+            <td class="col1">{{ order.id }}</td>
+            <td class="col2">{{ order.model }}</td>
+            <td class="col3">{{ order.time }}</td>
+            <td class="col4">{{ order.date }}</td>
+            <td class="status_col">{{ order.status }}</td>
+            <td class="col5">{{ order.name }}</td> 
+            <td class="col6">{{ order.email }}</td>  
+            <td class="action_col">
+
+                <div class="icons">
+
+                    <a class="close-button" (click)="openModal(order, 'выполнен')" *ngIf="order.status != 'отменен' && !(order.status == 'выполнен')">
+                        <img src="/icons/iconExecute.svg" alt="" class="icon">
+                        <p class="text-icon">
+                            выполнить
+                        </p>
+                    </a>
+
+                    <a class="close-button" (click)="openModal(order, 'отменен')" *ngIf="order.status == 'подтвержден'">
+                        <img src="/icons/iconsCancelorder.svg" alt="" class="icon">
+                        <p class="text-icon">
+                            отменить
+                        </p>
+                    </a>
+
+                    <a class="close-button" (click)="openModal(order, 'подтвержден')" *ngIf="!(order.status == 'подтвержден') && !(order.status == 'выполнен')">
+                        <img src="/icons/iconreturn.svg" alt="" class="icon">
+                        <p class="text-icon">
+                            возобновить
+                        </p>
+                    </a>
+
+             </div>
+
+                
+            </td>          
+        </tr>
+    </tbody>
+</table>

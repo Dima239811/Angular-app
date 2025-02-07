@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* базовые стили для каждой кнопки */
+@mixin base_styles_but {
+    border-radius: 100px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-decoration: none;
+    border: none;
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+}
+
+/* размеры и шрифт для кнопок в форме */
+@mixin base-style-form-button {
+    width: 300px;
+    height: 60px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* цвета для зеленой кнопки */
+@mixin greenColorSetings
+ {
+    background-color: var(--greenColor);
+    color: #FFFEFE;
+    &:hover {
+        background-color: #008C88;
+    }
+ }
+
+ /* цвета для кнопки с цветом фона F1F1F1 */
+ @mixin grayColorSetings {
+    background-color: var(--SecondButInForm);
+    color: #1A1B1B;
+    &:hover {
+        background-color: #E2DEDE;
+    }
+ }
+
+ /* светлая кнопка на странице профиля и ошибки цвета */
+ @mixin gray2Color {
+    background-color: #F1F1F1;
+    color: #00A19C;
+    &:hover {
+        background-color: #EEECEC;
+    }
+ }
+
+ /* шрифт для кнопок на страницах */
+ @mixin setingsText {
+    font-size: 24px;
+    font-weight: 700
+}
+
+@mixin sizeButProfile {
+    width: 328px;
+    height: 90px;
+}
+
+/* зеленая кнопка на формах */
+.formGreenBut {
+    @include base_styles_but;
+    @include base-style-form-button;
+    @include greenColorSetings;
+}
+
+/* светлая кнопка на формах */
+.formWhiteBut {
+    @include base_styles_but;
+    @include base-style-form-button;
+}
+
+/* кнопка с главной страницы */
+.indexPage {
+    @include base_styles_but;
+    @include greenColorSetings;
+    @include setingsText;
+    @include sizeButProfile;
+}
+
+/* кнопка зеленая с профиля */
+.ProfilePageGreenBut {
+    @include base_styles_but;
+    @include greenColorSetings;
+    @include setingsText;
+    @include sizeButProfile;
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+/* кнопка светлая с профиля */
+.ProfilePageLightBut {
+    @include base_styles_but;
+    @include gray2Color;
+    @include setingsText;
+    @include sizeButProfile;
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+/* зеленая кнопка со страницы ошибки */
+.ErrorPageGreenBut {
+    @include base_styles_but;
+    @include greenColorSetings;
+    @include setingsText;
+    width: 300px;
+    height: 90px;
+}
+
+/* светлая кнопка со страницы ошибки */
+.ErrorPageLightBut {
+    @include base_styles_but;
+    @include gray2Color;
+    @include setingsText;
+    width: 300px;
+    height: 90px;
+}

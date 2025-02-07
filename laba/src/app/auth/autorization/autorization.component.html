@@ -1,0 +1,69 @@
+<div class="modal-overlay" *ngIf="isOpen" (click)="close()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+         
+        <div class="header-form">  
+            <h1>Авторизация</h1>
+            <button class="close-button" (click)="close()">&#10006;</button>
+        </div>
+        
+        <div class="Input-field">
+            <form 
+            [formGroup]="formAutorization"
+            [ngClass]="{'has-error': formAutorization.get('useremail')?.invalid &&
+            formAutorization.get('useremail')?.touched}"
+            [ngClass]="{'has-error': formAutorization.get('userpassword')?.invalid &&
+            formAutorization.get('userpassword')?.touched}"
+            >
+                <app-field 
+                    textHolder={{Textholder[0]}} 
+                    id="{{Id[0]}}" 
+                    type="{{type[0]}}"
+                    [controlName]="'useremail'"
+                >
+                </app-field>
+
+                <span 
+                    class="form-help-text"
+                    *ngIf="formAutorization.get('useremail')?.invalid &&
+                    formAutorization.get('useremail')?.touched"
+                >  
+                    <span *ngIf="formAutorization.get('useremail')?.errors?.['required']">Email не может быть пустым.</span>
+                    <span *ngIf="formAutorization.get('useremail')?.errors?.['email']">Введите корректный email.</span>
+
+                </span>
+
+                <app-field 
+                    textHolder={{Textholder[1]}} 
+                    id="{{Id[1]}}" 
+                    type="{{type[1]}}"
+                    [controlName]="'userpassword'"
+                >
+                </app-field>
+
+                <span class="form-help-text"
+                    *ngIf="formAutorization.get('userpassword')?.invalid &&
+                    formAutorization.get('userpassword')?.touched"
+                    >  
+                        <span *ngIf="formAutorization.get('userpassword')?.errors?.['required']">Пароль не может быть пустым.</span>
+                        <span *ngIf="formAutorization.get('userpassword')?.errors?.['minlength']">
+                            Пароль должен быть больше {{ formAutorization.get('userpassword')?.errors?.['minlength']?.['requiredLength'] }}
+                            символов. Сейчас {{ formAutorization.get('userpassword')?.errors?.['minlength']?.['actualLength'] }}.
+                        </span>
+                </span>
+
+                <app-but-index [text]="text[1]" [flagFormBut]="numBut[0]" (click)="onButtonClick()"></app-but-index>
+                    <div
+                        class="alert alert-{{ message.type }}" 
+                        *ngIf="message.text">
+                        {{ message.text }}
+                    </div>
+            </form>         
+        </div>  
+
+        <div class="textBut">
+            <p>Если у вас еще нет акканута, то нажмите <br> на кнопку “Создать”</p>
+            <app-but-index [text]="text[0]" [flagFormBut]="numBut[1]" (click)="switchToRegistration()"></app-but-index>
+        </div>  
+
+    </div>
+  </div>
